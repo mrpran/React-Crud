@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , Redirect} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { userService } from '../services/user.service';
+import { alertService} from '../services/alert.service';
 
-
-function Users() {
+function Users({history, match}) {
 
     const validationSchema = Yup.object().shape({
         title: Yup.string()
@@ -20,9 +21,19 @@ function Users() {
 
     function onSubmit(data) {
         console.log(data);
+        createUser(data);
+    }
+    function createUser(data) {
+        return userService.create(data)
+        .then(() => {
+            alertService.success('User added', { keepAfterRouteChange: true });
+            history.push('.');
+        })
+        .catch(alertService.error);
     }
 
     const [user, setUser] = useState({});
+    
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
