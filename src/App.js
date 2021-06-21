@@ -16,7 +16,8 @@ function App() {
       <div className="container pt-4 pb-4">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/users" component={Users} />
+          <Route exact path="/users/add" component={Users} />
+          <Route exact path="/users/edit/:id" component={Users} />
           <Redirect from="*" to="/" />
         </Switch>
       </div>

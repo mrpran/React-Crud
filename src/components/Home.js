@@ -40,7 +40,7 @@ function Home() {
                             <td>{user.title}</td>
 
                             <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link to={'google.com'} className="btn btn-sm btn-primary mr-1">Edit</Link>
+                                <Link to={`users/edit/${user.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
                                 <button onClick={() => deleteUser(user.id)} className="btn btn-sm btn-danger btn-delete-user" disabled={user.isDeleting}>
                                     {user.isDeleting 
                                         ? <span className="spinner-border spinner-border-sm"></span>
