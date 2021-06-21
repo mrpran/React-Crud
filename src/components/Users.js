@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useParams, Link , Redirect} from 'react-router-dom';
+import {useParams, Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -56,7 +56,7 @@ function Users({history}) {
     }
     return (
         <form onSubmit={handleSubmit(onSubmit)} onReset={reset}>
-             <h1>{isAddMode ? 'Add User' : 'Edit User'}</h1>
+             <h1>{isAddMode ? 'Add User' : `Edit User #${id}`}</h1>
             <div className="form-row">
                 <div className="form-group col-5">
                     <label>Title</label>
@@ -74,6 +74,7 @@ function Users({history}) {
                     {formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                     Save
                 </button>
+                <Link to={isAddMode ? '.' : '..'} className="btn btn-link">Cancel</Link>
             </div>
         </form>
     );

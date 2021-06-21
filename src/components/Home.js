@@ -28,8 +28,9 @@ function Home() {
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '20%' }}>Id</th>
-                        <th style={{ width: '70%' }}>Title</th>
+                        <th style={{ width: '25%' }}>Id</th>
+                        <th style={{ width: '25%' }}>Title</th>
+                        <th style={{ width: '40%' }}>Body</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>
@@ -38,6 +39,7 @@ function Home() {
                         <tr key={user.id}>
                             <td>{user.id}</td>
                             <td>{user.title}</td>
+                            <td>{user.body}</td>
 
                             <td style={{ whiteSpace: 'nowrap' }}>
                                 <Link to={`users/edit/${user.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>
