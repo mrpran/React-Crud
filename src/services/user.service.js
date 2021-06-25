@@ -1,6 +1,6 @@
 import {fetchWrapper} from '../helpers/fetch-wrapper';
 
-const baseUrl = 'http://localhost:3004/posts';
+const baseUrl = 'http://localhost:3000/posts';
 
 export const userService = {
     getAll,

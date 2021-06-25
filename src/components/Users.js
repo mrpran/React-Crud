@@ -60,7 +60,7 @@ function Users({history}) {
             <div className="form-row">
                 <div className="form-group col-5">
                     <label>Title</label>
-                    <input {...register("title")}type="text" className={`form-control ${errors.title ? 'is-invalid' : ''}`} />
+                    <input {...register("title")} type="text" className={`form-control ${errors.title ? 'is-invalid' : ''}`} />
                     <div className="invalid-feedback">{errors.title?.message}</div>
                 </div>
                 <div className="form-group col-5">
