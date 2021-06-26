@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, NavLink } from 'react-router-dom';
+import { Alert } from './Alert';
 
 import { userService } from '../services/user.service';
+import { alertService } from '../services/alert.service';
 
 function Home() {
 
@@ -19,10 +20,21 @@ function Home() {
         }));
         userService.delete(id).then(() => {
             setUsers(users => users.filter(x => x.id !== id));
+            alertService.warn('User deleted', { keepAfterRouteChange: true });
         });
     }
 
     return (
+        <>
+        <nav className="navbar navbar-expand navbar-dark bg-dark">
+            <div className="navbar-nav">
+                <NavLink exact to="/" className="nav-item nav-link">Home</NavLink>
+                <NavLink exact to="/login" className="nav-item nav-link">Logout</NavLink>
+                <NavLink to="/users/add" className="nav-item nav-link">Add User</NavLink>
+            </div>
+        </nav>
+        <Alert />
+        <div className="container pt-4 pb-4">
         <div>
             <h1>Users</h1>
             <table className="table table-striped">
@@ -56,6 +68,8 @@ function Home() {
                 </tbody>
             </table>
         </div>
+        </div>
+        </>
     );
 }
 

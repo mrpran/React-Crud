@@ -15,6 +15,7 @@
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.9.0",
+    "react-hooks-toaster": "^0.1.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "rxjs": "^7.1.0",
